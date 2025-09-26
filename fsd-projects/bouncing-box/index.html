@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(81, 0, 128);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -21,14 +21,18 @@
 
       .board {
         height: 100vh;
+        background-image: url("bakground.jpg");
+      /* Added background-image: challenge 1 --> */
       }
     </style>
-    <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->          
   </head>
+
 
   <body class="board">
     <!-- HTML for the box -->
     <div class="box">?</div>
+
 
     <script>
       (function () {
@@ -69,22 +73,26 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
-
-
-
-
+        var positionX = 0;
+        var points = 0;
+        var speed = 10;
+        
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
-        function update() {
-
-        
-
-          
+        function update() { moveBoxTo(boardWidth); { // Moves box to right edge
+        positionX = positionX + speed;
+        moveBoxTo(positionX);
+        if (positionX > boardWidth) {
+          speed *= -1; // Code to reverse speed goes here
+}
+        else if (positionX < 0) {
+        speed *= -1; // Code to reverse speed goes here
+}
         }
+      }
 
         /**
          * This Function will be called each time the box is clicked.
@@ -93,15 +101,13 @@
          * - increase the speed
          * - move the box to the left side of the screen.
          */
-        function handleBoxClick() {
-
-
-
-
+        function handleBoxClick() {  
+        positionX = 0;
+        changeBoxText(points);
+        points = points + 1; // Adds 1 to points
+        speed = 3 * points + 10;
         }
-
-
-        
+       
       })();
     </script>
   </body>
