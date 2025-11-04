@@ -1,4 +1,4 @@
-// platformer
+//platformer
 $(function () {
   // initialize canvas and context when able to
   canvas = document.getElementById("canvas");
@@ -43,15 +43,11 @@ $(function () {
 
     // TODO 3 - Create Collectables
     createCollectable("diamond", 200, 170, 0.5, 0.7);
-    createCollectable("Max", 600, 500, 0.9, 0.2);
-    createCollectable("Steve", 400, 400, 0.4, 0.7);
 
 
     
     // TODO 4 - Create Cannons
-    createCannon("right", 300, 2000);
-    createCannon("top", 400, 1000);
-    createCannon("bottom", 600, 3000);
+    createCannon(200, 2000);
 
     
     //////////////////////////////////
